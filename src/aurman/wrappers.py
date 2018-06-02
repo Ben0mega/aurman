@@ -76,7 +76,7 @@ def expac(option: str, formatting: Sequence[str], targets: Sequence[str]) -> Lis
     return return_list
 
 
-def pacman(options_as_string: str, fetch_output: bool, dir_to_execute: str = None, with_super_permisions: bool = True,
+def pacman(options_as_string: str, fetch_output: bool, dir_to_execute: str = None, with_super_permissions: bool = True,
            use_ask: bool = False) -> List[str]:
     """
     pacman wrapper. see: https://www.archlinux.org/pacman/pacman.8.html
