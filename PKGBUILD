@@ -4,10 +4,10 @@ pkgver=2.9.37
 pkgrel=1
 pkgdesc="aurman AUR helper with almost pacman syntax"
 arch=('any')
-url="https://github.com/polygamma/aurman"
+url="https://github.com/ben0mega/aurman"
 license=('MIT')
 depends=('python' 'expac' 'python-requests' 'git' 'python-regex' 'pacman>=5.1')
-source=('aurman_sources::git+https://github.com/polygamma/aurman.git#branch=master')
+source=('aurman_sources::git+https://github.com/ben0mega/aurman.git#branch=master')
 md5sums=('SKIP')
 conflicts=('aurman')
 provides=('aurman')
