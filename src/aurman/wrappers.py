@@ -76,7 +76,7 @@ def expac(option: str, formatting: Sequence[str], targets: Sequence[str]) -> Lis
     return return_list
 
 
-def pacman(options_as_string: str, fetch_output: bool, dir_to_execute: str = None, sudo: bool = True,
+def pacman(options_as_string: str, fetch_output: bool, dir_to_execute: str = None, with_super_permisions: bool = True,
            use_ask: bool = False) -> List[str]:
     """
     pacman wrapper. see: https://www.archlinux.org/pacman/pacman.8.html
@@ -94,8 +94,8 @@ def pacman(options_as_string: str, fetch_output: bool, dir_to_execute: str = Non
     if use_ask:
         options_as_string = "--ask=4 " + options_as_string
 
-    if sudo:
-        pacman_query = "sudo pacman {}".format(options_as_string)
+    if with_super_permissions:
+        pacman_query = "su --command='pacman {}'".format(options_as_string)
     else:
         pacman_query = "pacman {}".format(options_as_string)
 
