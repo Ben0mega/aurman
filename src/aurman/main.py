@@ -132,7 +132,7 @@ def clean_cache(pacman_args: 'PacmanArgs', aur: bool, repo: bool, clean_force: b
     :param noconfirm: if --noconfirm
     """
     if not aur:
-        pacman(str(pacman_args), False, sudo=True)
+        pacman(str(pacman_args), False, with_super_permissions=True)
 
     if not repo:
         if not os.path.isdir(Package.cache_dir):
@@ -230,7 +230,7 @@ def get_groups_to_install(packages_of_user_names: List[str], aur: bool) -> List[
     """
     groups_chosen = []
     if not aur:
-        groups = pacman("-Sg", True, sudo=False)
+        groups = pacman("-Sg", True, with_super_permissions=False)
         for name in packages_of_user_names[:]:
             if name in groups:
                 groups_chosen.append(name)
@@ -634,7 +634,7 @@ def process(args):
                 sys.exit(1)
 
             if as_explicit_container:
-                pacman("-D --asexplicit {}".format(" ".join(as_explicit_container)), True, sudo=True)
+                pacman("-D --asexplicit {}".format(" ".join(as_explicit_container)), True, with_super_permissions=True)
         # aur chunks always consist of one package
         else:
             package = package_chunk[0]
